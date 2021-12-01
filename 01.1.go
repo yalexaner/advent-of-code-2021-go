@@ -13,7 +13,6 @@ func main() {
 	if err != nil {
 		log.Fatal(err)
 	}
-	defer file.Close()
 
 	scanner := bufio.NewScanner(file)
 
@@ -32,6 +31,10 @@ func main() {
 		}
 
 		previousDepth = depth
+	}
+
+	if err := file.Close(); err != nil {
+		log.Fatal(err)
 	}
 
 	fmt.Println(increaseCount)
