@@ -1,19 +1,13 @@
-package main
+package first
 
 import (
 	"bufio"
-	"fmt"
 	"log"
 	"os"
 	"strconv"
 )
 
-func main() {
-	file, err := os.Open("C:\\Users\\yachmenev.av\\Downloads\\input.txt")
-	if err != nil {
-		log.Fatal(err)
-	}
-
+func First(file *os.File) int {
 	scanner := bufio.NewScanner(file)
 
 	var (
@@ -33,9 +27,5 @@ func main() {
 		previousDepth = depth
 	}
 
-	if err := file.Close(); err != nil {
-		log.Fatal(err)
-	}
-
-	fmt.Println(increaseCount)
+	return increaseCount
 }

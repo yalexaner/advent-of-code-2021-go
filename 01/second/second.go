@@ -1,18 +1,12 @@
-package main
+package second
 
 import (
 	"bufio"
-	"fmt"
-	"log"
 	"os"
 	"strconv"
 )
 
-func main() {
-	file, err := os.Open("C:\\Users\\yachmenev.av\\Downloads\\input.txt")
-	if err != nil {
-		log.Fatal(err)
-	}
+func Second(file *os.File) int {
 	scanner := bufio.NewScanner(file)
 
 	var depths [3]int
@@ -35,11 +29,7 @@ func main() {
 		depths[2] = currentDepth
 	}
 
-	if err := file.Close(); err != nil {
-		log.Fatal(err)
-	}
-
-	fmt.Println(increaseCount)
+	return increaseCount
 }
 
 // Fills slice with first three lines from bufio.Scanner
