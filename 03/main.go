@@ -2,22 +2,13 @@ package main
 
 import (
 	"awesomeProject/03/first"
+	"awesomeProject/core"
 	"fmt"
-	"log"
-	"os"
-	"path/filepath"
 )
 
 func main() {
-	path, err := filepath.Abs("03/input.txt")
-	if err != nil {
-		log.Fatal(err)
-	}
-
-	file, err := os.Open(path)
-	if err != nil {
-		log.Fatal(err)
-	}
+	path := core.AbsPath("03/input.txt")
+	file := core.OpenFile(path)
 
 	firstPartResult := first.First(file)
 	fmt.Printf("First part result: %d\n", firstPartResult)
